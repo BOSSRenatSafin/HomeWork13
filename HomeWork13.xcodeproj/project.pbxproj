@@ -14,8 +14,13 @@
 		1527291E27A6F313003770F0 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1527291D27A6F313003770F0 /* TabBarController.swift */; };
 		1527292427A6F439003770F0 /* MediaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1527292327A6F439003770F0 /* MediaViewController.swift */; };
 		1527292A27A6F49B003770F0 /* ForYouViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1527292927A6F49B003770F0 /* ForYouViewController.swift */; };
-		1527292C27A6F4A8003770F0 /* AlbumsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1527292B27A6F4A8003770F0 /* AlbumsViewController.swift */; };
+		1527292C27A6F4A8003770F0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1527292B27A6F4A8003770F0 /* ViewController.swift */; };
 		1527292E27A6F4B5003770F0 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1527292D27A6F4B5003770F0 /* SearchViewController.swift */; };
+		1527293127A71F52003770F0 /* Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1527293027A71F52003770F0 /* Cell.swift */; };
+		1527295327A83939003770F0 /* DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1527295227A83939003770F0 /* DataSource.swift */; };
+		1527295527A851FF003770F0 /* CellsHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1527295427A851FF003770F0 /* CellsHeader.swift */; };
+		1527295827A94CAB003770F0 /* FirstSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1527295727A94CAB003770F0 /* FirstSection.swift */; };
+		1527295B27A95636003770F0 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1527295A27A95636003770F0 /* DataModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,8 +33,13 @@
 		1527291D27A6F313003770F0 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		1527292327A6F439003770F0 /* MediaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaViewController.swift; sourceTree = "<group>"; };
 		1527292927A6F49B003770F0 /* ForYouViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForYouViewController.swift; sourceTree = "<group>"; };
-		1527292B27A6F4A8003770F0 /* AlbumsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumsViewController.swift; sourceTree = "<group>"; };
+		1527292B27A6F4A8003770F0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		1527292D27A6F4B5003770F0 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		1527293027A71F52003770F0 /* Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cell.swift; sourceTree = "<group>"; };
+		1527295227A83939003770F0 /* DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSource.swift; sourceTree = "<group>"; };
+		1527295427A851FF003770F0 /* CellsHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellsHeader.swift; sourceTree = "<group>"; };
+		1527295727A94CAB003770F0 /* FirstSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstSection.swift; sourceTree = "<group>"; };
+		1527295A27A95636003770F0 /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,7 +161,10 @@
 		1527292727A6F46C003770F0 /* AlbumsView */ = {
 			isa = PBXGroup;
 			children = (
-				1527292B27A6F4A8003770F0 /* AlbumsViewController.swift */,
+				1527295927A95609003770F0 /* AlbumsDataModel */,
+				1527295C27A95675003770F0 /* AlbumsController */,
+				1527295627A94C7A003770F0 /* Sections */,
+				1527292F27A71F34003770F0 /* Cells */,
 			);
 			path = AlbumsView;
 			sourceTree = "<group>";
@@ -162,6 +175,40 @@
 				1527292D27A6F4B5003770F0 /* SearchViewController.swift */,
 			);
 			path = SearchView;
+			sourceTree = "<group>";
+		};
+		1527292F27A71F34003770F0 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				1527293027A71F52003770F0 /* Cell.swift */,
+				1527295427A851FF003770F0 /* CellsHeader.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		1527295627A94C7A003770F0 /* Sections */ = {
+			isa = PBXGroup;
+			children = (
+				1527295727A94CAB003770F0 /* FirstSection.swift */,
+			);
+			path = Sections;
+			sourceTree = "<group>";
+		};
+		1527295927A95609003770F0 /* AlbumsDataModel */ = {
+			isa = PBXGroup;
+			children = (
+				1527295A27A95636003770F0 /* DataModel.swift */,
+			);
+			path = AlbumsDataModel;
+			sourceTree = "<group>";
+		};
+		1527295C27A95675003770F0 /* AlbumsController */ = {
+			isa = PBXGroup;
+			children = (
+				1527292B27A6F4A8003770F0 /* ViewController.swift */,
+				1527295227A83939003770F0 /* DataSource.swift */,
+			);
+			path = AlbumsController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -235,12 +282,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1527293127A71F52003770F0 /* Cell.swift in Sources */,
 				1527292E27A6F4B5003770F0 /* SearchViewController.swift in Sources */,
 				1527292A27A6F49B003770F0 /* ForYouViewController.swift in Sources */,
 				1527291E27A6F313003770F0 /* TabBarController.swift in Sources */,
+				1527295827A94CAB003770F0 /* FirstSection.swift in Sources */,
 				1527292427A6F439003770F0 /* MediaViewController.swift in Sources */,
+				1527295B27A95636003770F0 /* DataModel.swift in Sources */,
+				1527295327A83939003770F0 /* DataSource.swift in Sources */,
 				152728F027A6DD43003770F0 /* AppDelegate.swift in Sources */,
-				1527292C27A6F4A8003770F0 /* AlbumsViewController.swift in Sources */,
+				1527292C27A6F4A8003770F0 /* ViewController.swift in Sources */,
+				1527295527A851FF003770F0 /* CellsHeader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
