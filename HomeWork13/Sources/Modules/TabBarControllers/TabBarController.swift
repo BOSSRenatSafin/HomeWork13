@@ -22,7 +22,7 @@ final class TabBarController: UITabBarController {
         forYouViewController.tabBarItem = UITabBarItem(title: "Для Вас",
                                                        image: .init(systemName: "heart.text.square"),
                                                        tag: 1)
-        let albumsNavigationViewController = UINavigationController(rootViewController: AlbumsViewController())
+        let albumsNavigationViewController = UINavigationController(rootViewController: ViewController())
         albumsNavigationViewController.tabBarItem = UITabBarItem(title: "Альбом",
                                                                  image: .init(systemName: "rectangle.stack.fill"),
                                                                  tag: 2)
