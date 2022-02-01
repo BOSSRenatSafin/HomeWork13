@@ -31,6 +31,7 @@ class ViewController: UIViewController {
         setupHierarchy()
         setupLayout()
         updateData(addTo: FirstSection.addFirstSection())
+        updateData(addTo: SecondSection.addSecondSection())
     }
     
     // MARK: - Settings
@@ -54,36 +55,66 @@ class ViewController: UIViewController {
     private func setupCollectionViewLayout() -> UICollectionViewCompositionalLayout {
         return UICollectionViewCompositionalLayout { (sectionIndex, environment) -> NSCollectionLayoutSection? in
             
-            let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(0.5))
-            let contentInset = NSDirectionalEdgeInsets(top: 5, leading: 5, bottom: 30, trailing: 5)
-            
-            let topItem = NSCollectionLayoutItem(layoutSize: itemSize)
-            topItem.contentInsets = contentInset
-            
-            let bottomItem = NSCollectionLayoutItem(layoutSize: itemSize)
-            bottomItem.contentInsets = contentInset
-            
-            let nestedGroup = NSCollectionLayoutGroup.vertical(layoutSize: NSCollectionLayoutSize(widthDimension: .absolute(190), heightDimension: .absolute(500)), subitems: [topItem, bottomItem])
-            
-            
-            let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.98),
-                                                    heightDimension: .estimated(50)
-            )
-            
-            let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerSize,
-                                                                     elementKind: UICollectionView.elementKindSectionHeader,
-                                                                     alignment: .top
-            )
-            
-            let sectionOne = NSCollectionLayoutSection(group: nestedGroup)
-            sectionOne.boundarySupplementaryItems = [header]
-            sectionOne.orthogonalScrollingBehavior = .groupPaging
-            sectionOne.contentInsets = .init(top: 0,
-                                             leading: 15,
-                                             bottom: 20,
-                                             trailing: 0
-            )
-            return sectionOne
+            switch self.data[sectionIndex].typeCell {
+            case .twoRowCells:
+                let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(0.5))
+                let contentInset = NSDirectionalEdgeInsets(top: 5, leading: 5, bottom: 50, trailing: 5)
+                
+                let topItem = NSCollectionLayoutItem(layoutSize: itemSize)
+                topItem.contentInsets = contentInset
+                
+                let bottomItem = NSCollectionLayoutItem(layoutSize: itemSize)
+                bottomItem.contentInsets = contentInset
+                
+                let nestedGroup = NSCollectionLayoutGroup.vertical(layoutSize: NSCollectionLayoutSize(widthDimension: .absolute(190), heightDimension: .absolute(500)), subitems: [topItem, bottomItem])
+                
+                
+                let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.98),
+                                                        heightDimension: .estimated(50)
+                )
+                
+                let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerSize,
+                                                                         elementKind: UICollectionView.elementKindSectionHeader,
+                                                                         alignment: .top
+                )
+                
+                let sectionOne = NSCollectionLayoutSection(group: nestedGroup)
+                sectionOne.boundarySupplementaryItems = [header]
+                sectionOne.orthogonalScrollingBehavior = .groupPaging
+                sectionOne.contentInsets = .init(top: 0,
+                                                 leading: 15,
+                                                 bottom: 20,
+                                                 trailing: 0
+                )
+                return sectionOne
+            case .oneRowCells:
+                let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1))
+                
+                let item = NSCollectionLayoutItem(layoutSize: itemSize)
+                item.contentInsets = NSDirectionalEdgeInsets(top: 5, leading: 5, bottom: 50, trailing: 5)
+                
+                let group = NSCollectionLayoutGroup.horizontal(layoutSize: NSCollectionLayoutSize(widthDimension: .absolute(190), heightDimension: .absolute(500 / 2)), subitems: [item])
+                
+                let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.98),
+                                                        heightDimension: .estimated(50)
+                )
+                
+                let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerSize,
+                                                                         elementKind: UICollectionView.elementKindSectionHeader,
+                                                                         alignment: .top
+                )
+                
+                let section = NSCollectionLayoutSection(group: group)
+                section.contentInsets = .init(top: 0, leading: 15, bottom: 20, trailing: 0)
+                section.orthogonalScrollingBehavior = .groupPaging
+                section.boundarySupplementaryItems = [header]
+                return section
+                
+            //case .listCells:
+                
+                
+                
+            }
         }
     }
     

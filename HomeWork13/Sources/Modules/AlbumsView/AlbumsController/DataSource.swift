@@ -10,7 +10,7 @@ import UIKit
 extension ViewController: UICollectionViewDataSource {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
+        return data.count
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -29,8 +29,8 @@ extension ViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         let headerOne = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: CellsHeader.identifier, for: indexPath) as! CellsHeader
-        print(headerOne)
         headerOne.label.text = data[indexPath.section].title
+        headerOne.button.setTitle("См все", for: .normal)
         return headerOne
     }
 }

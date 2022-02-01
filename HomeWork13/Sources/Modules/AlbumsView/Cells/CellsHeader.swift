@@ -26,7 +26,7 @@ class CellsHeader: UICollectionReusableView {
         return label
     }()
     
-    private lazy var button: UIButton = {
+     lazy var button: UIButton = {
         let button = UIButton(type: .system)
         button.tintColor = .link
         button.titleLabel?.font = UIFont.systemFont(ofSize: 18)
