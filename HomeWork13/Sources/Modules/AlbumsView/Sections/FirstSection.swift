@@ -9,7 +9,7 @@ import UIKit
 
 class FirstSection {
     static func addFirstSection() -> [SettingsSection] {
-        return [SettingsSection(typeCell: .twoRowCells, title: "Мои альбомы", button: "Все", albums:
+        return [SettingsSection(typeCell: .twoRowCells, title: "Мои альбомы", button: "См все", albums:
                                     [Album(imegeName: "pic - 2", nameCell: "Недавние", countFotoToCell: "15"),
                                      Album(imegeName: "pic - 3", nameCell: "Избранное", countFotoToCell: "543"),
                                      Album(imegeName: "pic - 4", nameCell: "Instagram", countFotoToCell: "100"),

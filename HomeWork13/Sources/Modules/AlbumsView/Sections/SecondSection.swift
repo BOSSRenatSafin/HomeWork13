@@ -9,7 +9,7 @@ import UIKit
 
 class SecondSection {
     static func addSecondSection() -> [SettingsSection] {
-        return [SettingsSection(typeCell: .oneRowCells, title: "Люди и места", button: "Все", albums:
+        return [SettingsSection(typeCell: .oneRowCells, title: "Люди и места", button: "См все", albums:
                                     [Album(imegeName: "pic - 2", nameCell: "Люди", countFotoToCell: "15"),
                                      Album(imegeName: "pic - 3", nameCell: "Места", countFotoToCell: "543"),
                                      Album(imegeName: "pic - 4", nameCell: "Документа", countFotoToCell: "100"),
