@@ -19,6 +19,7 @@ class ViewController: UIViewController {
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.register(Cell.self, forCellWithReuseIdentifier: Cell.identifier)
         collectionView.register(CellsHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: CellsHeader.identifier)
+        collectionView.register(ListCell.self, forCellWithReuseIdentifier: ListCell.identifier)
         collectionView.dataSource = self
         return collectionView
     }()
@@ -32,6 +33,8 @@ class ViewController: UIViewController {
         setupLayout()
         updateData(addTo: FirstSection.addFirstSection())
         updateData(addTo: SecondSection.addSecondSection())
+        updateData(addTo: ThirdSection.addThirdSection())
+        updateData(addTo: FourthSection.addfourthSection())
     }
     
     // MARK: - Settings
@@ -110,9 +113,28 @@ class ViewController: UIViewController {
                 section.boundarySupplementaryItems = [header]
                 return section
                 
-            //case .listCells:
+            case .listCells:
+                let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1))
                 
+                let item = NSCollectionLayoutItem(layoutSize: itemSize)
+                item.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0)
                 
+                let group = NSCollectionLayoutGroup.horizontal(layoutSize: NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .estimated(50)), subitems: [item])
+                
+                let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.98),
+                                                        heightDimension: .estimated(50)
+                )
+                
+                let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerSize,
+                                                                         elementKind: UICollectionView.elementKindSectionHeader,
+                                                                         alignment: .top
+                )
+                
+                let section = NSCollectionLayoutSection(group: group)
+                section.contentInsets = .init(top: 0, leading: 15, bottom: 20, trailing: 0)
+                section.boundarySupplementaryItems = [header]
+                
+                return section
                 
             }
         }

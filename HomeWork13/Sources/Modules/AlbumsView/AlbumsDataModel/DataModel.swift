@@ -17,7 +17,7 @@ struct SettingsSection: Hashable {
 enum TypeSection {
     case oneRowCells
     case twoRowCells
-    //case listCells
+    case listCells
 }
 
 struct Album: Decodable, Hashable {
