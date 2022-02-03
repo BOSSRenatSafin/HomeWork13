@@ -7,7 +7,7 @@
 
 import UIKit
 
-struct SettingsSection: Hashable {
+struct SettingsSection {
     let typeCell: TypeSection
     let title: String
     let button: String?
@@ -20,7 +20,7 @@ enum TypeSection {
     case listCells
 }
 
-struct Album: Decodable, Hashable {
+struct Album {
     let imegeName: String
     let nameCell: String
     let countFotoToCell: String

@@ -17,7 +17,6 @@ class Cell: UICollectionViewCell {
         var imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
-        imageView.setContentHuggingPriority(.defaultHigh, for: .horizontal)
         imageView.layer.cornerRadius = Metric.imageViewLayerCornerRadius
         return imageView
     }()
@@ -39,7 +38,6 @@ class Cell: UICollectionViewCell {
     private lazy var stackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [imageView, titleLabel, coutnFotos])
         stackView.axis = .vertical
-        stackView.setCustomSpacing(Metric.stackViewSetCustomSpacing, after: titleLabel)
         stackView.clipsToBounds = true
         return stackView
     }()
@@ -87,7 +85,6 @@ extension Cell {
         static let imageViewLayerCornerRadius: CGFloat = 6
         static let titleLabelFont: CGFloat = 16
         static let countFotosFont: CGFloat = 16
-        static let stackViewSetCustomSpacing: CGFloat = -6
         static let imageViewHeightAnchor: CGFloat = 150
     }
 }
