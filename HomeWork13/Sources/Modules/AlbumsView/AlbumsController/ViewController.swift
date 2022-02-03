@@ -62,25 +62,19 @@ class ViewController: UIViewController {
             case .twoRowCells:
                 let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(Metric.twoRowItemSizeWidth), heightDimension: .fractionalHeight(Metric.twoRowItemSizeHeight))
                 let contentInset = NSDirectionalEdgeInsets(top: Metric.twoRowTopItemContentInsetTop, leading: Metric.twoRowTopItemContentInsetLeading, bottom: Metric.twoRowTopItemContentInsetBottom, trailing: Metric.twoRowTopItemContentInsetTraeling)
-                
                 let topItem = NSCollectionLayoutItem(layoutSize: itemSize)
                 topItem.contentInsets = contentInset
-                
                 let bottomItem = NSCollectionLayoutItem(layoutSize: itemSize)
                 bottomItem.contentInsets = NSDirectionalEdgeInsets(top: Metric.twoRowBottomItemContentInsetTop, leading: Metric.twoRowBottomItemContentInsetLeading, bottom: Metric.twoRowBottomItemContentInsetBottom, trailing: Metric.twoRowBottomItemContentInsetTraeling)
-                
                 let nestedGroup = NSCollectionLayoutGroup.vertical(layoutSize: NSCollectionLayoutSize(widthDimension: .absolute(Metric.twoRowNestedGroupWidth), heightDimension: .absolute(Metric.twoRowNestedGroupHeight)), subitems: [topItem, bottomItem])
-                
                 
                 let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(Metric.twoRowHeaderSizeWidth),
                                                         heightDimension: .estimated(Metric.twoRowHeaderSizeHeight)
                 )
-                
                 let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerSize,
                                                                          elementKind: UICollectionView.elementKindSectionHeader,
                                                                          alignment: .top
                 )
-                
                 let sectionOne = NSCollectionLayoutSection(group: nestedGroup)
                 sectionOne.boundarySupplementaryItems = [header]
                 sectionOne.orthogonalScrollingBehavior = .groupPaging
@@ -90,51 +84,39 @@ class ViewController: UIViewController {
                                                  trailing: Metric.twoRowSectionContentInsetsTrailing
                 )
                 return sectionOne
-                
             case .oneRowCells:
                 let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(Metric.oneRowItemSizeWidth), heightDimension: .fractionalHeight(Metric.oneRowItemSizeHeight))
-                
                 let item = NSCollectionLayoutItem(layoutSize: itemSize)
                 item.contentInsets = NSDirectionalEdgeInsets(top: Metric.oneRowItemContentInsetTop, leading: Metric.oneRowItemContentInsetLeading, bottom: Metric.oneRowItemContentInsetBottom, trailing: Metric.oneRowItemContentInsetTraeling)
-                
                 let group = NSCollectionLayoutGroup.horizontal(layoutSize: NSCollectionLayoutSize(widthDimension: .absolute(Metric.oneRowGroupWidth), heightDimension: .absolute(Metric.oneRowGroupHeight)), subitems: [item])
                 
                 let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(Metric.oneRowHeaderSizeWidth),
                                                         heightDimension: .estimated(Metric.oneRowHeaderSizeHeight)
                 )
-                
                 let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerSize,
                                                                          elementKind: UICollectionView.elementKindSectionHeader,
                                                                          alignment: .top
                 )
-                
                 let section = NSCollectionLayoutSection(group: group)
                 section.contentInsets = .init(top: Metric.oneRowSectionContentInsetsTop, leading: Metric.oneRowSectionContentInsetsLeading, bottom: Metric.oneRowSectionContentInsetsBottom, trailing: Metric.oneRowSectionContentInsetsTrailing)
                 section.orthogonalScrollingBehavior = .groupPaging
                 section.boundarySupplementaryItems = [header]
                 return section
-                
             case .listCells:
                 let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(Metric.listRowItemSizeWidth), heightDimension: .fractionalHeight(Metric.listRowItemSizeHeight))
-                
                 let item = NSCollectionLayoutItem(layoutSize: itemSize)
                 item.contentInsets = NSDirectionalEdgeInsets(top: Metric.listRowItemContentInsetTop, leading: Metric.listRowItemContentInsetLeading, bottom: Metric.listRowItemContentInsetBottom, trailing: Metric.listRowItemContentInsetTraeling)
-                
                 let group = NSCollectionLayoutGroup.horizontal(layoutSize: NSCollectionLayoutSize(widthDimension: .fractionalWidth(Metric.listRowGroupWidth), heightDimension: .estimated(Metric.listRowGroupHeight)), subitems: [item])
-                
                 let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(Metric.listRowHeaderSizeWidth),
                                                         heightDimension: .estimated(Metric.listRowHeaderSizeHeight)
                 )
-                
                 let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerSize,
                                                                          elementKind: UICollectionView.elementKindSectionHeader,
                                                                          alignment: .top
                 )
-                
                 let section = NSCollectionLayoutSection(group: group)
                 section.contentInsets = .init(top: Metric.listRowSectionContentInsetsTop, leading: Metric.listRowSectionContentInsetsLeading, bottom: Metric.listRowSectionContentInsetsBottom, trailing: Metric.listRowSectionContentInsetsTrailing)
                 section.boundarySupplementaryItems = [header]
-                
                 return section
             }
         }

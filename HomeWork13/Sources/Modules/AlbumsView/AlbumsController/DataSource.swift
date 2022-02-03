@@ -8,7 +8,6 @@
 import UIKit
 
 extension ViewController: UICollectionViewDataSource {
-    
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return data.count
     }
