@@ -22,14 +22,14 @@ class CellsHeader: UICollectionReusableView {
     lazy var label: UILabel = {
         let label = UILabel()
         label.text = ""
-        label.font = .systemFont(ofSize: 25, weight: .bold)
+        label.font = .systemFont(ofSize: Metric.labelFont, weight: .bold)
         return label
     }()
     
-     lazy var button: UIButton = {
+    lazy var button: UIButton = {
         let button = UIButton(type: .system)
         button.tintColor = .link
-        button.titleLabel?.font = UIFont.systemFont(ofSize: 18)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: Metric.buttonTitleLabelFont)
         button.setTitle("См все", for: .normal)
         return button
     }()
@@ -45,7 +45,7 @@ class CellsHeader: UICollectionReusableView {
     private lazy var stackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [separator, stackViewLabelButton])
         stackView.axis = .vertical
-        stackView.setCustomSpacing(10, after: separator)
+        stackView.setCustomSpacing(Metric.stackViewSetCustomSpacing, after: separator)
         return stackView
     }()
     
@@ -74,7 +74,7 @@ class CellsHeader: UICollectionReusableView {
     
     private func setupLayout() {
         separator.translatesAutoresizingMaskIntoConstraints = false
-        separator.heightAnchor.constraint(equalToConstant: 1)
+        separator.heightAnchor.constraint(equalToConstant: Metric.separatorHeightAnchor)
         
         stackViewLabelButton.translatesAutoresizingMaskIntoConstraints = false
         
@@ -82,6 +82,16 @@ class CellsHeader: UICollectionReusableView {
         stackView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
         stackView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
         stackView.topAnchor.constraint(equalTo: topAnchor).isActive = true
-        
+    }
+}
+
+// MARK: - Constants
+
+extension CellsHeader {
+    enum Metric {
+        static let labelFont: CGFloat = 25
+        static let buttonTitleLabelFont: CGFloat = 18
+        static let stackViewSetCustomSpacing: CGFloat = 10
+        static let separatorHeightAnchor: CGFloat = 1
     }
 }
