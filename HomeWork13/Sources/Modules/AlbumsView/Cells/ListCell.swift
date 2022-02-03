@@ -57,7 +57,7 @@ class ListCell: UICollectionViewCell {
         stackView.axis = .horizontal
         stackView.spacing = UIStackView.spacingUseSystem
         stackView.isLayoutMarginsRelativeArrangement = true
-        stackView.directionalLayoutMargins = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 15)
+        stackView.directionalLayoutMargins = NSDirectionalEdgeInsets(top: Metric.stackViewDirectionalLayoutMarginsTop, leading: Metric.stackViewDirectionalLayoutMarginsLeading, bottom: Metric.stackViewDirectionalLayoutMarginsBottom, trailing: Metric.stackViewDirectionalLayoutMarginsTrailing)
         return stackView
     }()
     
@@ -79,7 +79,6 @@ class ListCell: UICollectionViewCell {
         super.init(frame: frame)
         setupHierarchy()
         setupLayout()
-        
     }
     
     required init?(coder: NSCoder) {
@@ -97,10 +96,10 @@ class ListCell: UICollectionViewCell {
         indicator.translatesAutoresizingMaskIntoConstraints = false
         
         iconImageView.translatesAutoresizingMaskIntoConstraints = false
-        iconImageView.heightAnchor.constraint(equalToConstant: 24).isActive = true
-        iconImageView.centerXAnchor.constraint(equalTo: iconContainer.centerXAnchor, constant: -5).isActive = true
+        iconImageView.heightAnchor.constraint(equalToConstant: Metric.iconImageViewHeightAnchor).isActive = true
+        iconImageView.centerXAnchor.constraint(equalTo: iconContainer.centerXAnchor, constant: Metric.iconImageViewCenterXAnchor).isActive = true
         iconImageView.centerYAnchor.constraint(equalTo: iconContainer.centerYAnchor).isActive = true
-
+        
         iconContainer.translatesAutoresizingMaskIntoConstraints = false
         iconContainer.widthAnchor.constraint(equalTo: heightAnchor).isActive = true
         
@@ -111,7 +110,7 @@ class ListCell: UICollectionViewCell {
         stackView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
         
         separator.translatesAutoresizingMaskIntoConstraints = false
-        separator.heightAnchor.constraint(equalToConstant: 1).isActive = true
+        separator.heightAnchor.constraint(equalToConstant: Metric.separatorHeightAnchor).isActive = true
     }
     
     public func configure(model: Album) {
@@ -122,4 +121,18 @@ class ListCell: UICollectionViewCell {
     }
 }
 
+// MARK: - Constants
+
+extension ListCell {
+    enum Metric {
+        static let stackViewDirectionalLayoutMarginsTop: CGFloat = 0
+        static let stackViewDirectionalLayoutMarginsLeading: CGFloat = 0
+        static let stackViewDirectionalLayoutMarginsBottom: CGFloat = 0
+        static let stackViewDirectionalLayoutMarginsTrailing: CGFloat = 15
+        
+        static let iconImageViewHeightAnchor: CGFloat = 24
+        static let iconImageViewCenterXAnchor: CGFloat = -5
+        static let separatorHeightAnchor: CGFloat = 1
+    }
+}
 

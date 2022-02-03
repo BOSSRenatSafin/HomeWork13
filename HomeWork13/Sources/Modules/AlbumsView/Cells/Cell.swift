@@ -18,20 +18,20 @@ class Cell: UICollectionViewCell {
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         imageView.setContentHuggingPriority(.defaultHigh, for: .horizontal)
-        imageView.layer.cornerRadius = 6
+        imageView.layer.cornerRadius = Metric.imageViewLayerCornerRadius
         return imageView
     }()
     
     private lazy var titleLabel: UILabel = {
         var titleLabel = UILabel()
-        titleLabel.font = .systemFont(ofSize: 16)
+        titleLabel.font = .systemFont(ofSize: Metric.titleLabelFont)
         titleLabel.textColor = .label
         return titleLabel
     }()
     
     private lazy var coutnFotos: UILabel = {
         var countFotos = UILabel()
-        countFotos.font = .systemFont(ofSize: 16)
+        countFotos.font = .systemFont(ofSize: Metric.countFotosFont)
         countFotos.textColor = .secondaryLabel
         return countFotos
     }()
@@ -39,7 +39,7 @@ class Cell: UICollectionViewCell {
     private lazy var stackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [imageView, titleLabel, coutnFotos])
         stackView.axis = .vertical
-        stackView.setCustomSpacing(-6, after: titleLabel)
+        stackView.setCustomSpacing(Metric.stackViewSetCustomSpacing, after: titleLabel)
         stackView.clipsToBounds = true
         return stackView
     }()
@@ -70,12 +70,24 @@ class Cell: UICollectionViewCell {
         stackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
         
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.heightAnchor.constraint(equalToConstant: 150).isActive = true
+        imageView.heightAnchor.constraint(equalToConstant: Metric.imageViewHeightAnchor).isActive = true
     }
     
     public func configure(model: Album) {
         imageView.image = UIImage(named: model.imegeName)
         titleLabel.text = model.nameCell
         coutnFotos.text = model.countFotoToCell
+    }
+}
+
+// MARK: - Constants
+
+extension Cell {
+    enum Metric {
+        static let imageViewLayerCornerRadius: CGFloat = 6
+        static let titleLabelFont: CGFloat = 16
+        static let countFotosFont: CGFloat = 16
+        static let stackViewSetCustomSpacing: CGFloat = -6
+        static let imageViewHeightAnchor: CGFloat = 150
     }
 }
